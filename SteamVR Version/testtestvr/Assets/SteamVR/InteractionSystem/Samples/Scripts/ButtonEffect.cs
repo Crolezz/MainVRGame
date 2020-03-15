@@ -13,6 +13,7 @@ namespace Valve.VR.InteractionSystem.Sample
         {
             ColorSelf(Color.cyan);
             fromHand.TriggerHapticPulse(1000);
+            SceneManager.LoadScene("TestScene");
         }
 
         public void OnButtonUp(Hand fromHand)
@@ -20,13 +21,18 @@ namespace Valve.VR.InteractionSystem.Sample
             ColorSelf(Color.white);
         }
 
+        
+
+
         private void ColorSelf(Color newColor)
         {
+            
             Renderer[] renderers = this.GetComponentsInChildren<Renderer>();
             for (int rendererIndex = 0; rendererIndex < renderers.Length; rendererIndex++)
             {
                 renderers[rendererIndex].material.color = newColor;
             }
+            
         }
     }
 }
