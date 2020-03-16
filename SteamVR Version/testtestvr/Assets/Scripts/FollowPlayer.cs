@@ -14,7 +14,7 @@ public class FollowPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
         navMesh = gameObject.GetComponent<NavMeshAgent>();
         Anim = GetComponent<Animator>();
     }
@@ -34,7 +34,7 @@ public class FollowPlayer : MonoBehaviour
     void Follow()
     {
         navMesh.transform.LookAt(playerTransform);
-        navMesh.destination = playerTransform.position;
+        //navMesh.destination = playerTransform.position;
     }
 
     void Animations()
