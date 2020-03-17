@@ -10,7 +10,10 @@ public class FlyingEnemyShoot : MonoBehaviour
     GameObject player;
     float distance;
     float TimebetweenShots;
-    float startTBS = 1f; 
+    float startTBS = 1f;
+   
+
+
 
 
     // Start is called before the first frame update
@@ -24,7 +27,11 @@ public class FlyingEnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 direction = player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
+
+
         distance = Vector3.Distance(enemy.transform.position, player.transform.position);       
 
         if (distance < 50)
