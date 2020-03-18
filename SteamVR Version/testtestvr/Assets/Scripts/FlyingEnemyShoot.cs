@@ -10,7 +10,7 @@ public class FlyingEnemyShoot : MonoBehaviour
     GameObject player;
     float distance;
     float TimebetweenShots;
-    float startTBS = 1f;
+    float startTBS = 5f;
    
 
 

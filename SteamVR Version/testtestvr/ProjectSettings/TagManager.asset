@@ -7,6 +7,8 @@ TagManager:
   - projectile
   - FxTemporaire
   - Button
+  - EnemyBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - 
   - Player
-  - Fenemy
+  - FlyingEnemy
   - 
   - 
   - 

@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 1855165575228582845}
   m_Layer: 9
   m_Name: FlyingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a22d89deedb544382faa277b269ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 8879489580029247363, guid: 1087fed8c254f874da374700eb6bfae2, type: 3}
+  bullet: {fileID: 4526213607070567522, guid: c37f6d063b915514f9a6aa7438247b09, type: 3}
   FirePoint: {fileID: 3648965254459839983}
 --- !u!114 &7872043619537507427
 MonoBehaviour:
@@ -519,7 +519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d994b4c8663723644abee0830302ca8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
 --- !u!195 &1855165575228582845
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -530,7 +529,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.9807859
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
