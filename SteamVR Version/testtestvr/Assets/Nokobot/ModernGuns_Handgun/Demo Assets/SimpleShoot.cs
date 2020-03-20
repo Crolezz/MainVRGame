@@ -17,6 +17,11 @@ public class SimpleShoot : MonoBehaviour
     public AudioSource ShootAU;
 
 
+    public GameObject SmokeParticleSystem;
+    public GameObject FireFlash;
+    public GameObject Beam; 
+
+
     public float shotPower = 100f;
 
     private Interactable interactable; //
@@ -26,6 +31,8 @@ public class SimpleShoot : MonoBehaviour
         if (barrelLocation == null)
             barrelLocation = transform;
         interactable = GetComponent<Interactable>(); //
+
+       
     }
 
     void FixedUpdate()
@@ -37,6 +44,7 @@ public class SimpleShoot : MonoBehaviour
             if (fireAction[source].stateDown)
             {
                 GetComponent<Animator>().SetTrigger("Fire");
+
             }
           
 
@@ -57,9 +65,17 @@ public class SimpleShoot : MonoBehaviour
          bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
          bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
 
-       GameObject tempFlash;
-      Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-       tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
+        GameObject tempFlash;
+        Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
+        GameObject Smoke = Instantiate(SmokeParticleSystem, barrelLocation.position, barrelLocation.rotation);
+        Destroy(Smoke, 0.5f);
+        GameObject Fireflash = Instantiate(FireFlash, barrelLocation.position, barrelLocation.rotation);
+        Destroy(Fireflash, 0.5f);
+        GameObject beam = Instantiate(Beam, barrelLocation.position, barrelLocation.rotation);
+        Destroy(beam, 0.1f);
+
+
 
         ShootAU.Play();
 

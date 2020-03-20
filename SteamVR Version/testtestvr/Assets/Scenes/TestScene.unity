@@ -1049,6 +1049,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -26.78
       objectReference: {fileID: 0}
+    - target: {fileID: 114258639798283212, guid: 3a041205f62419f439a714f534390f0d,
+        type: 3}
+      propertyPath: SmokeParticleSystem
+      value: 
+      objectReference: {fileID: 5491282056132544970, guid: a8b463dfed142c44cb2c67c72483b4c5,
+        type: 3}
+    - target: {fileID: 114258639798283212, guid: 3a041205f62419f439a714f534390f0d,
+        type: 3}
+      propertyPath: FireFlash
+      value: 
+      objectReference: {fileID: 2006377414808164135, guid: 777c1d029e7256a4d89d927883f79559,
+        type: 3}
+    - target: {fileID: 114258639798283212, guid: 3a041205f62419f439a714f534390f0d,
+        type: 3}
+      propertyPath: Beam
+      value: 
+      objectReference: {fileID: 847013141014849383, guid: 23c8ebf6d64d655489d3605956fe455b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a041205f62419f439a714f534390f0d, type: 3}
 --- !u!4 &336651995 stripped
@@ -4132,7 +4150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617562620070314, guid: 67c3c990b6c48af469e31db314977502, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4617562620070314, guid: 67c3c990b6c48af469e31db314977502, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4238,7 +4256,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1125373837
 PrefabInstance:
