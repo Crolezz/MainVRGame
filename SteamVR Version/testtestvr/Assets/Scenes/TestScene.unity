@@ -7150,6 +7150,24 @@ PrefabInstance:
       propertyPath: ShootAU
       value: 
       objectReference: {fileID: 879390230}
+    - target: {fileID: 114258639798283212, guid: 3a041205f62419f439a714f534390f0d,
+        type: 3}
+      propertyPath: SmokeParticleSystem
+      value: 
+      objectReference: {fileID: 5491282056132544970, guid: a8b463dfed142c44cb2c67c72483b4c5,
+        type: 3}
+    - target: {fileID: 114258639798283212, guid: 3a041205f62419f439a714f534390f0d,
+        type: 3}
+      propertyPath: FireFlash
+      value: 
+      objectReference: {fileID: 2006377414808164135, guid: 777c1d029e7256a4d89d927883f79559,
+        type: 3}
+    - target: {fileID: 114258639798283212, guid: 3a041205f62419f439a714f534390f0d,
+        type: 3}
+      propertyPath: Beam
+      value: 
+      objectReference: {fileID: 847013141014849383, guid: 23c8ebf6d64d655489d3605956fe455b,
+        type: 3}
     - target: {fileID: 4873335824438132, guid: 3a041205f62419f439a714f534390f0d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.055
