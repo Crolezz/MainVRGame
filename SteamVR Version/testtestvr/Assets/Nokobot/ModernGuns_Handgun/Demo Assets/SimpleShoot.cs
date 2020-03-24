@@ -15,11 +15,11 @@ public class SimpleShoot : MonoBehaviour
     public Transform barrelLocation;
     public Transform casingExitLocation;
     public AudioSource ShootAU;
-
+    public GameObject bullethole;
 
     public GameObject SmokeParticleSystem;
     public GameObject FireFlash;
-    public GameObject Beam; 
+    public GameObject Beam;
 
 
     public float shotPower = 100f;
@@ -32,12 +32,12 @@ public class SimpleShoot : MonoBehaviour
             barrelLocation = transform;
         interactable = GetComponent<Interactable>(); //
 
-       
+
     }
 
     void FixedUpdate()
     {
-        if(interactable.attachedToHand != null) //
+        if (interactable.attachedToHand != null) //
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType; //
 
@@ -45,25 +45,41 @@ public class SimpleShoot : MonoBehaviour
             {
                 GetComponent<Animator>().SetTrigger("Fire");
 
+                RaycastHit hit;
+                Ray ray = new Ray(transform.position, transform.forward);
+                if (Physics.Raycast(ray, out hit, 100f))
+                {
+                    Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                }
+
             }
-          
+
 
         }
 
 
-        /*
-        if (Input.GetButtonDown("Fire1"))
+
+       /* if (Input.GetButtonDown("Fire1"))
         {
             GetComponent<Animator>().SetTrigger("Fire");
-        }
-        */
+
+
+
+            RaycastHit hit;
+            Ray ray = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(ray, out hit, 100f))
+            {
+                Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+            }
+
+        }*/
     }
 
     void Shoot()
     {
-         GameObject bullet;
-         bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
-         bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        GameObject bullet;
+        bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
+        bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
 
         GameObject tempFlash;
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
@@ -83,6 +99,8 @@ public class SimpleShoot : MonoBehaviour
         // Instantiate(casingPrefab, casingExitLocation.position, casingExitLocation.rotation).GetComponent<Rigidbody>().AddForce(casingExitLocation.right * 100f);
 
     }
+    
+
 
     void CasingRelease()
     {
