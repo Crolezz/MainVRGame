@@ -20,6 +20,9 @@ public class SimpleShoot : MonoBehaviour
     public GameObject SmokeParticleSystem;
     public GameObject FireFlash;
     public GameObject Beam;
+    public GameObject Robothit;
+    public AudioSource Robotsound;
+
 
 
     public float shotPower = 100f;
@@ -50,6 +53,10 @@ public class SimpleShoot : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 100f))
                 {
                     Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                    Destroy(bullethole, 4f);
+                    Instantiate(Robothit, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                    Destroy(Robothit, 6f);
+                    Robotsound.Play();
                 }
 
             }
@@ -59,20 +66,20 @@ public class SimpleShoot : MonoBehaviour
 
 
 
-       /* if (Input.GetButtonDown("Fire1"))
-        {
-            GetComponent<Animator>().SetTrigger("Fire");
+        /*   if (Input.GetButtonDown("Fire1"))
+           {
+               GetComponent<Animator>().SetTrigger("Fire");
 
 
 
-            RaycastHit hit;
-            Ray ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out hit, 100f))
-            {
-                Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-            }
+               RaycastHit hit;
+               Ray ray = new Ray(transform.position, transform.forward);
+               if (Physics.Raycast(ray, out hit, 100f))
+               {
+                   Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+               }
 
-        }*/
+           }*/
     }
 
     void Shoot()
