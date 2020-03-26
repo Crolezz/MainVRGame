@@ -15,13 +15,16 @@ public class SimpleShoot : MonoBehaviour
     public Transform barrelLocation;
     public Transform casingExitLocation;
     public AudioSource ShootAU;
+    public RaycastHit hit;
     public GameObject bullethole;
+    public Transform bulletholeparent;
 
     public GameObject SmokeParticleSystem;
     public GameObject FireFlash;
     public GameObject Beam;
     public GameObject Robothit;
     public AudioSource Robotsound;
+
 
 
 
@@ -48,16 +51,7 @@ public class SimpleShoot : MonoBehaviour
             {
                 GetComponent<Animator>().SetTrigger("Fire");
 
-                RaycastHit hit;
-                Ray ray = new Ray(transform.position, transform.forward);
-                if (Physics.Raycast(ray, out hit, 100f))
-                {
-                    Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                    Destroy(bullethole, 4f);
-                    Instantiate(Robothit, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                    Destroy(Robothit, 6f);
-                    Robotsound.Play();
-                }
+                ProjectileRaycast();
 
             }
 
@@ -66,20 +60,13 @@ public class SimpleShoot : MonoBehaviour
 
 
 
-        /*   if (Input.GetButtonDown("Fire1"))
-           {
-               GetComponent<Animator>().SetTrigger("Fire");
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GetComponent<Animator>().SetTrigger("Fire");
 
+            ProjectileRaycast();
 
-
-               RaycastHit hit;
-               Ray ray = new Ray(transform.position, transform.forward);
-               if (Physics.Raycast(ray, out hit, 100f))
-               {
-                   Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-               }
-
-           }*/
+        }
     }
 
     void Shoot()
@@ -106,9 +93,24 @@ public class SimpleShoot : MonoBehaviour
         // Instantiate(casingPrefab, casingExitLocation.position, casingExitLocation.rotation).GetComponent<Rigidbody>().AddForce(casingExitLocation.right * 100f);
 
     }
-    
 
+    void ProjectileRaycast()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject Newbullet = Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal));
+            Newbullet.transform.position += new Vector3(0, 0.01f, 0);
+            Destroy(Newbullet, 4f);
+            Newbullet.transform.parent = bulletholeparent;
+            
+           GameObject Newhittrig = Instantiate(Robothit, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+           Destroy(Newhittrig, 6f);
+           Robotsound.Play();
+        }
 
+    }
     void CasingRelease()
     {
          GameObject casing;

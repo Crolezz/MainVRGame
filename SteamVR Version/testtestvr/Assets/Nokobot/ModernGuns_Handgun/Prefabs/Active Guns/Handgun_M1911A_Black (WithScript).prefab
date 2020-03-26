@@ -318,8 +318,9 @@ MonoBehaviour:
   barrelLocation: {fileID: 4284830639736152}
   casingExitLocation: {fileID: 4915251581735220}
   ShootAU: {fileID: 1708475385}
-  bullethole: {fileID: 936354358615942265, guid: e991158b45fa82c44bae9d16124f481e,
+  bullethole: {fileID: 7497813890434587408, guid: 1d042c79b38524144904a1d2d8187b63,
     type: 3}
+  bulletholeparent: {fileID: 0}
   SmokeParticleSystem: {fileID: 5491282056132544970, guid: a8b463dfed142c44cb2c67c72483b4c5,
     type: 3}
   FireFlash: {fileID: 2006377414808164135, guid: 777c1d029e7256a4d89d927883f79559,
