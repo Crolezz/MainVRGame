@@ -18,6 +18,7 @@ public class SimpleShoot : MonoBehaviour
     public RaycastHit hit;
     public GameObject bullethole;
     public Transform bulletholeparent;
+    public GameObject line;
 
     public GameObject SmokeParticleSystem;
     public GameObject FireFlash;
@@ -84,6 +85,17 @@ public class SimpleShoot : MonoBehaviour
         Destroy(Fireflash, 0.5f);
         GameObject beam = Instantiate(Beam, barrelLocation.position, barrelLocation.rotation);
         Destroy(beam, 0.1f);
+
+        RaycastHit hitInfo;
+        bool hasHit = Physics.Raycast(barrelLocation.position, barrelLocation.forward, out hitInfo, 100);
+
+        if(line)
+        {
+            GameObject liner = Instantiate(line);
+            liner.GetComponent<LineRenderer>().SetPositions(new Vector3[] { barrelLocation.position, barrelLocation.position + barrelLocation.forward * 100 });
+
+            Destroy(liner, 0.5f);
+        }
 
 
 
