@@ -27,10 +27,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while(enemyCount < 10)
         {
-            randEnemy = Random.Range(0, 2);
-            xPos = Random.Range(-75, 75);
-            zPos = Random.Range(-95, 95);
-            Instantiate(enemies[randEnemy], new Vector3(xPos,20, zPos), Quaternion.identity);
+            randEnemy = Random.Range(0, 1);
+            xPos = Random.Range(-60, 60);
+            zPos = Random.Range(-60, 60);
+            Instantiate(enemies[randEnemy], new Vector3(xPos,23, zPos), Quaternion.identity);
             yield return new WaitForSeconds(1f);
             enemyCount += 1; 
         }
