@@ -4,37 +4,66 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject[] enemies;
-    public int xPos;
-    public int zPos;
-    public int enemyCount;
-    int randEnemy;
+    public GameObject RobotEnemy;
+    public int EnemiesToSpawn;
+    private int currentEnemies;
+    public static int enemiesKilled;
+    private float spawnRangeX;
+    private float spawnRangeZ;
+    public float setMaxSpawnRangeX;
+    public float setMaxSpawnRangeZ;
+    private float intervalToSpawn;
+    public float nextSpawnTimer;
+
+    [HideInInspector]
+    public float waveNumber;
+    public float maxWaves;
+    private float intervalToWave;
+    public float nextWaveTimer;
+    private bool changedWave = false;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Spawn());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        intervalToWave = nextWaveTimer;
+        intervalToSpawn = nextSpawnTimer;
+        spawnRangeX = Random.Range(-50, 50);
+        spawnRangeZ = Random.Range(-50, 50);
         
     }
 
-    IEnumerator Spawn()
+    void Update()
     {
-        while(enemyCount < 10)
+        intervalToSpawn -= Time.deltaTime;
+        
+        if (intervalToSpawn <= 0 && currentEnemies < EnemiesToSpawn && waveNumber < maxWaves)
         {
-            randEnemy = Random.Range(0, 1);
-            xPos = Random.Range(-60, 60);
-            zPos = Random.Range(-60, 60);
-            Instantiate(enemies[randEnemy], new Vector3(xPos,23, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(1f);
-            enemyCount += 1; 
+            Instantiate(RobotEnemy, new Vector3(transform.position.x + spawnRangeX, transform.position.y, transform.position.z + spawnRangeZ), transform.rotation);
+            spawnRangeX = Random.Range(-setMaxSpawnRangeX, setMaxSpawnRangeX);
+            spawnRangeZ = Random.Range(-setMaxSpawnRangeZ, setMaxSpawnRangeZ);
+            intervalToSpawn = nextSpawnTimer;
+            currentEnemies++;
         }
-       
 
+        if (enemiesKilled == EnemiesToSpawn)
+        {
+            if (changedWave == false)
+            {
+                waveNumber++;
+                changedWave = true;
+            }
+            
+            intervalToWave -= Time.deltaTime;
+
+            if (intervalToWave <= 0)
+            {
+                intervalToWave = nextWaveTimer;
+                //intervalToSpawn = nextSpawn;
+                changedWave = false;
+                currentEnemies = 0;
+                enemiesKilled = 0;
+                
+            }
+        }
     }
 }

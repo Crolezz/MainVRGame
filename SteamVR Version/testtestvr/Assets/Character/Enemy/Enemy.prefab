@@ -507,10 +507,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2979246911948074698}
   - component: {fileID: 5175316061444932528}
-  - component: {fileID: 6222598686923029378}
   - component: {fileID: -6939174046971632867}
   - component: {fileID: 2707346913493740606}
   - component: {fileID: -5278288301637483819}
+  - component: {fileID: 875528560257086331}
+  - component: {fileID: -506261003345033553}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -553,20 +554,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6222598686923029378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2234683239221353689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33f250c62785b56488a73d673d5bbe8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkRate: 0.01
-  target: {fileID: 132594, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 3}
 --- !u!195 &-6939174046971632867
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -577,11 +564,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 7
+  m_Acceleration: 30
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 7
+  m_AngularSpeed: 90
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -618,6 +605,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &875528560257086331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234683239221353689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19306851657cd3b4c8f5922706202864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerChar: {fileID: 0}
+--- !u!114 &-506261003345033553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234683239221353689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7500358623e494d9d38c316c5929aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  nextAttack: 0
+  attackTimer: 0
+  rangeToAttack: 0
 --- !u!1 &2540542018933005244
 GameObject:
   m_ObjectHideFlags: 0

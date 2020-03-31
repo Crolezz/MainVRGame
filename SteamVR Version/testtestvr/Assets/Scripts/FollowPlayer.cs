@@ -5,53 +5,32 @@ using UnityEngine.AI;
 
 public class FollowPlayer : MonoBehaviour
 {
-    Transform playerTransform;
-    NavMeshAgent navMesh;
-    public float checkRate = 0.01f;
-    float nextCheck;
-    Animator Anim;
+    public GameObject PlayerChar;
+    NavMeshAgent agent;
+    Animator anim;
 
-    NavMeshAgent nma;
+    private bool isFollowing = false;
 
-   
-
-    // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        navMesh = gameObject.GetComponent<NavMeshAgent>();
-        Anim = GetComponent<Animator>();
-        NavMeshAgent nma = this.GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+
+        //Disables cursor during gameplay
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Time.time > nextCheck)
+        PlayerChar = GameObject.FindGameObjectWithTag("Player");
+        agent.SetDestination(PlayerChar.transform.position);
+        transform.LookAt(new Vector3(PlayerChar.transform.position.x, transform.position.y, PlayerChar.transform.position.z));
+
+        if (Vector3.Distance(transform.position, PlayerChar.transform.position) >= 3f)
         {
-            nextCheck = Time.time + checkRate;
-            Follow();
-        }
-
-        Animations();
-    }
-
-    void Follow()
-    {
-        navMesh.transform.LookAt(playerTransform);
-        //nma.Warp(playerTransform.position);
-
-        if(nma != null)
-        {
-            Debug.Log("its here");
-        }
-    }
-
-    void Animations()
-    {
-        if(navMesh.speed > 0)
-        {
-            Anim.SetBool("Run", true);
+            //anim.SetFloat("InputMagnitude", 1f);
+            isFollowing = true;
         }
     }
 }
