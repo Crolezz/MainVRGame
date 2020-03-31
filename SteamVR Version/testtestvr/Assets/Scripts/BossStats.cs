@@ -15,7 +15,7 @@ public class BossStats : MonoBehaviour
     {
         Health = 400;
         nextAttack = 3f;
-        rangeToAttack = 6;
+        rangeToAttack = 15;
         attackTimer = nextAttack;
     }
 
@@ -46,5 +46,6 @@ public class BossStats : MonoBehaviour
         {
             Health -= 100;
         }
+        Debug.Log(rangeToPlayer);
     }
 }
