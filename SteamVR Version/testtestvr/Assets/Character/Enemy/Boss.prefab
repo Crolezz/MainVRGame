@@ -1438,10 +1438,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7022794482684153131}
   - component: {fileID: 1152914486779371601}
-  - component: {fileID: 2195099780444952675}
   - component: {fileID: 6313636489096528124}
   - component: {fileID: 7908319553231589343}
   - component: {fileID: 9120444377941025076}
+  - component: {fileID: -5320929745358912039}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1484,19 +1484,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2195099780444952675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6282138331675410232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33f250c62785b56488a73d673d5bbe8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkRate: 0.01
 --- !u!195 &6313636489096528124
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1548,6 +1535,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5320929745358912039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282138331675410232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5a0fe854773284abdca920b2583fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  nextAttack: 0
+  attackTimer: 0
+  rangeToAttack: 0
 --- !u!1 &6409263330322096011
 GameObject:
   m_ObjectHideFlags: 0
