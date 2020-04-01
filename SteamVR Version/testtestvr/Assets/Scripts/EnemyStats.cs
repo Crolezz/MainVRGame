@@ -30,12 +30,13 @@ public class EnemyStats : MonoBehaviour
         SliderHP = GetComponentInChildren<Slider>();
 
         SliderHP.maxValue = Health;
-        SliderHP.value = Health;
+        //SliderHP.value = Health;                                                           
     }
-
+                                                                                                                 
     void Update()
     {
         playerChar = GameObject.FindGameObjectWithTag("Player");
+        SliderHP.value = Health;                                                               // Elon*  I put this in Update instead so it would automatically update when damage is dealt
 
         rangeToPlayer = Vector3.Distance(transform.position, playerChar.transform.position);
 
@@ -71,7 +72,7 @@ public class EnemyStats : MonoBehaviour
         //Code for when the enemy is hi with a weapon goes here
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Health -= 100;
+            Health -= 50;            
         }
     }
 
@@ -81,13 +82,13 @@ public class EnemyStats : MonoBehaviour
         if (other.gameObject.CompareTag("Weapon_Sword"))
         {
             Health -= meleeDamageReceived;
-            SliderHP.value -= meleeDamageReceived;
+            //SliderHP.value -= meleeDamageReceived;  
         }
 
         if (other.gameObject.CompareTag("Player_Bullet"))
         {
             Health -= rangedDamageReceived;
-            SliderHP.value -= rangedDamageReceived;
+           // SliderHP.value -= rangedDamageReceived;
             Destroy(other.gameObject);
         }
     }

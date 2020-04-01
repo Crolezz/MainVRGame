@@ -1718,7 +1718,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441252587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 947371296}
@@ -1726,7 +1726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -598, y: 250}
+  m_AnchoredPosition: {x: -666, y: -390}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &441252589
@@ -1751,18 +1751,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 100
+    m_MaxSize: 150
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Oh no! You have lost the game!
+  m_Text: GameOver! You Lose!
 --- !u!222 &441252590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6461,8 +6461,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e0af22505130447b8e9225d3c2ed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalEnemy: {fileID: 2234683239221353689, guid: 3594687110bf6ee4abf20a83dd515bac,
-    type: 3}
+  enemies:
+  - {fileID: 2234683239221353689, guid: 3594687110bf6ee4abf20a83dd515bac, type: 3}
+  - {fileID: 8336935847652863485, guid: 49c2d0663b29c504d92b53a349c41a6f, type: 3}
+  - {fileID: 3106826462511553320, guid: b861b97acfa17b942b185801c47aadd0, type: 3}
   bossEnemy: {fileID: 6282138331675410232, guid: d4788aa6dab7a5e40b7ad715ed1e1ecd,
     type: 3}
   EnemiesAliveText: {fileID: 944826222}

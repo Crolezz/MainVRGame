@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject normalEnemy;
+    public GameObject[] enemies;
+   // public GameObject normalEnemy;
     public GameObject bossEnemy;
     public Text EnemiesAliveText;
     public Text WaveNumberText;
@@ -20,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
     public float setMaxSpawnRangeZ;
     private float intervalToSpawn;
     public float nextSpawnTimer;
+    int randEnemy;
 
     [HideInInspector]
     public float waveNumber;
@@ -47,7 +49,8 @@ public class EnemySpawner : MonoBehaviour
         if (intervalToSpawn <= 0 && currentEnemies < EnemiesToSpawn && waveNumber < maxWaves + 1)
         {
             StartCoroutine(Wait());
-            Instantiate(normalEnemy, new Vector3(transform.position.x + spawnRangeX, transform.position.y, transform.position.z + spawnRangeZ), transform.rotation);
+            randEnemy = Random.Range(0, 3);
+            Instantiate(enemies[randEnemy], new Vector3(transform.position.x + spawnRangeX, transform.position.y, transform.position.z + spawnRangeZ), transform.rotation);
             spawnRangeX = Random.Range(-setMaxSpawnRangeX, setMaxSpawnRangeX);
             spawnRangeZ = Random.Range(-setMaxSpawnRangeZ, setMaxSpawnRangeZ);
 

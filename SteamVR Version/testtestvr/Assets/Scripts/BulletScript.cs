@@ -6,7 +6,7 @@ public class BulletScript : MonoBehaviour
 {
     Transform playerPosition;
     Vector3 target;
-    float speed = 10; 
+    public float speed; 
 
 
     // Start is called before the first frame update
