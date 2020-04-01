@@ -11,12 +11,17 @@ public class EnemyStats : MonoBehaviour
     public float attackTimer;
     private float rangeToPlayer;
     public float rangeToAttack;
+    private bool firstInRange = false;
+
+    Animator anim;
     void Start()
     {
-        Health = 100;
-        nextAttack = 2f;
-        rangeToAttack = 6;
+        //Health = 100;
+        //nextAttack = 2f;
+        //rangeToAttack = 6;
         attackTimer = nextAttack;
+
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -25,13 +30,26 @@ public class EnemyStats : MonoBehaviour
 
         rangeToPlayer = Vector3.Distance(transform.position, playerChar.transform.position);
 
-        attackTimer -= Time.deltaTime;
+        if (rangeToPlayer < rangeToAttack)
+        {
+            firstInRange = true;
+        }
+
+        if (firstInRange == true)
+        {
+            attackTimer -= Time.deltaTime;
+        }
 
         //Attack timer for enemy
         if (attackTimer < 0 && rangeToPlayer < rangeToAttack)
         {
             PlayerStats.Health -= 15;
             attackTimer = nextAttack;
+            anim.SetBool("Bite1", true);
+        }
+        else
+        {
+            anim.SetBool("Bite1", false);
         }
 
         //What happens when HP reaches 0
@@ -45,6 +63,21 @@ public class EnemyStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Health -= 100;
+        }
+    }
+
+    //set damage done by melee weapons and ranged weapons
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Weapon_Sword"))
+        {
+            Health -= 35;
+        }
+
+        if (other.gameObject.CompareTag("Player_Bullet"))
+        {
+            Health -= 25;
+            Destroy(other.gameObject);
         }
     }
 }

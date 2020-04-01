@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public static int Health;
+    public static bool gameOver = false;
     public GameObject GameLostText;
     
     void Start()
@@ -20,6 +21,9 @@ public class PlayerStats : MonoBehaviour
         {
             //SceneManager.LoadScene("GameOverScene");
             GameLostText.SetActive(true);
+            gameOver = true;
         }
+
+        Debug.Log(Health);
     }
 }

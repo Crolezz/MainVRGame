@@ -23,14 +23,19 @@ public class FollowPlayer : MonoBehaviour
     
     void Update()
     {
+
         PlayerChar = GameObject.FindGameObjectWithTag("Player");
         agent.SetDestination(PlayerChar.transform.position);
         transform.LookAt(new Vector3(PlayerChar.transform.position.x, transform.position.y, PlayerChar.transform.position.z));
 
-        if (Vector3.Distance(transform.position, PlayerChar.transform.position) >= 3f)
+        if (Vector3.Distance(transform.position, PlayerChar.transform.position) >= 6f)
         {
-            //anim.SetFloat("InputMagnitude", 1f);
+            anim.SetBool("Walk", true);
             isFollowing = true;
+        }
+        else
+        {
+            anim.SetBool("Walk", false);
         }
     }
 }
