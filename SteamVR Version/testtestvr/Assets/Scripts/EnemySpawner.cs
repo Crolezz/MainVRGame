@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject bossEnemy;
     public Text EnemiesAliveText;
     public Text WaveNumberText;
+    public GameObject WaveNum; 
 
     public int EnemiesToSpawn;
     private int currentEnemies;
@@ -41,10 +42,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        intervalToSpawn -= Time.deltaTime;
-        
+        intervalToSpawn -= Time.deltaTime;        
+
         if (intervalToSpawn <= 0 && currentEnemies < EnemiesToSpawn && waveNumber < maxWaves + 1)
         {
+            StartCoroutine(Wait());
             Instantiate(normalEnemy, new Vector3(transform.position.x + spawnRangeX, transform.position.y, transform.position.z + spawnRangeZ), transform.rotation);
             spawnRangeX = Random.Range(-setMaxSpawnRangeX, setMaxSpawnRangeX);
             spawnRangeZ = Random.Range(-setMaxSpawnRangeZ, setMaxSpawnRangeZ);
@@ -78,6 +80,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (intervalToWave <= 0 && killedBoss == true)
             {
+                WaveNum.SetActive(true);
                 EnemiesToSpawn = EnemiesToSpawn + 3; 
                 intervalToWave = nextWaveTimer;
                 //intervalToSpawn = nextSpawn;
@@ -91,5 +94,12 @@ public class EnemySpawner : MonoBehaviour
 
         EnemiesAliveText.text = "EnemiesAlive: " + (currentEnemies - enemiesKilled).ToString();
         WaveNumberText.text = "Wave: " + waveNumber;
+
+
+        IEnumerator Wait()
+        {
+            yield return new WaitForSeconds(3);
+            WaveNum.SetActive(false);
+        }
     }
 }
