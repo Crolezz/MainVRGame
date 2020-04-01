@@ -80,11 +80,11 @@ public class SimpleShoot : MonoBehaviour
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
         tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
         GameObject Smoke = Instantiate(SmokeParticleSystem, barrelLocation.position, barrelLocation.rotation);
-        Destroy(Smoke, 0.5f);
+        Destroy(Smoke, 0.6f);
         GameObject Fireflash = Instantiate(FireFlash, barrelLocation.position, barrelLocation.rotation);
-        Destroy(Fireflash, 0.5f);
+        Destroy(Fireflash, 0.4f);
         GameObject beam = Instantiate(Beam, barrelLocation.position, barrelLocation.rotation);
-        Destroy(beam, 0.1f);
+        Destroy(beam, 0.2f);
 
         RaycastHit hitInfo;
         bool hasHit = Physics.Raycast(barrelLocation.position, barrelLocation.forward, out hitInfo, 100);
