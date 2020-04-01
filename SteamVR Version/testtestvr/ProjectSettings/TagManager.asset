@@ -10,6 +10,8 @@ TagManager:
   - EnemyBullet
   - Enemy
   - Weapon
+  - Player_Bullet
+  - Weapon_Sword
   layers:
   - Default
   - TransparentFX

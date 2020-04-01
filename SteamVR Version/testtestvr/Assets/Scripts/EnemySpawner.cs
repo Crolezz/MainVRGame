@@ -78,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (intervalToWave <= 0 && killedBoss == true)
             {
+                EnemiesToSpawn = EnemiesToSpawn + 3; 
                 intervalToWave = nextWaveTimer;
                 //intervalToSpawn = nextSpawn;
                 changedWave = false;
