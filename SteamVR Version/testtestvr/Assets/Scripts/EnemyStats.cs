@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
     private GameObject playerChar;
+    public Slider SliderHP;
 
     public int Health;
     public float nextAttack;
     public float attackTimer;
     private float rangeToPlayer;
     public float rangeToAttack;
+    public int damageDoneToPlayer;
+    public int meleeDamageReceived;
+    public int rangedDamageReceived;
     private bool firstInRange = false;
 
     Animator anim;
@@ -20,8 +25,12 @@ public class EnemyStats : MonoBehaviour
         //nextAttack = 2f;
         //rangeToAttack = 6;
         attackTimer = nextAttack;
-
+      
         anim = GetComponent<Animator>();
+        SliderHP = GetComponentInChildren<Slider>();
+
+        SliderHP.maxValue = Health;
+        SliderHP.value = Health;
     }
 
     void Update()
@@ -43,7 +52,7 @@ public class EnemyStats : MonoBehaviour
         //Attack timer for enemy
         if (attackTimer < 0 && rangeToPlayer < rangeToAttack)
         {
-            PlayerStats.Health -= 15;
+            PlayerStats.Health -= damageDoneToPlayer;
             attackTimer = nextAttack;
             anim.SetBool("Bite1", true);
         }
@@ -71,12 +80,14 @@ public class EnemyStats : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon_Sword"))
         {
-            Health -= 35;
+            Health -= meleeDamageReceived;
+            SliderHP.value -= meleeDamageReceived;
         }
 
         if (other.gameObject.CompareTag("Player_Bullet"))
         {
-            Health -= 25;
+            Health -= rangedDamageReceived;
+            SliderHP.value -= rangedDamageReceived;
             Destroy(other.gameObject);
         }
     }
