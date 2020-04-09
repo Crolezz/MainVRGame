@@ -12,6 +12,8 @@ TagManager:
   - Weapon
   - Player_Bullet
   - Weapon_Sword
+  - Wall
+  - FlyingEnemyMovementZone
   layers:
   - Default
   - TransparentFX

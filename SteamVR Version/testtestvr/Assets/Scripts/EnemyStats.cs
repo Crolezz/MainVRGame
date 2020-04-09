@@ -53,12 +53,18 @@ public class EnemyStats : MonoBehaviour
         //Attack timer for enemy
         if (attackTimer < 0 && rangeToPlayer < rangeToAttack)
         {
-            PlayerStats.Health -= damageDoneToPlayer;
+
+            StartCoroutine(HitBoxActivation());
+            
+            //PlayerStats.Health -= damageDoneToPlayer;
             attackTimer = nextAttack;
+            
             anim.SetBool("Bite1", true);
+            
         }
         else
         {
+           
             anim.SetBool("Bite1", false);
         }
 
@@ -74,6 +80,17 @@ public class EnemyStats : MonoBehaviour
         {
             Health -= 50;            
         }
+    }
+
+    IEnumerator HitBoxActivation()
+    {
+        yield return new WaitForSeconds(0.65f);
+        transform.GetChild(3).gameObject.SetActive(true);
+
+
+        yield return new WaitForSeconds(0.2f);
+        transform.GetChild(3).gameObject.SetActive(false);
+        yield return null;
     }
 
     //set damage done by melee weapons and ranged weapons
@@ -92,4 +109,6 @@ public class EnemyStats : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+
 }
