@@ -29,7 +29,7 @@ public class SimpleShoot : MonoBehaviour
 
 
 
-    public float shotPower = 100f;
+    public float shotPower = 120f;
 
     private Interactable interactable; //
 

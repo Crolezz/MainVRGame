@@ -178,7 +178,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8f722ae570050e546ba7567b7fac11bb, type: 3}
+    m_Font: {fileID: 12800000, guid: 237764446034e2842984cc823971629a, type: 3}
     m_FontSize: 69
     m_FontStyle: 0
     m_BestFit: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8f722ae570050e546ba7567b7fac11bb, type: 3}
+    m_Font: {fileID: 12800000, guid: 237764446034e2842984cc823971629a, type: 3}
     m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
@@ -1194,7 +1194,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8f722ae570050e546ba7567b7fac11bb, type: 3}
+    m_Font: {fileID: 12800000, guid: 237764446034e2842984cc823971629a, type: 3}
     m_FontSize: 69
     m_FontStyle: 0
     m_BestFit: 0
@@ -1206,7 +1206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: COVID-19 ARENA
+  m_Text: Roboz ARENA
 --- !u!222 &1217845878
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1448,7 +1448,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8f722ae570050e546ba7567b7fac11bb, type: 3}
+    m_Font: {fileID: 12800000, guid: 237764446034e2842984cc823971629a, type: 3}
     m_FontSize: 69
     m_FontStyle: 0
     m_BestFit: 0
@@ -2012,7 +2012,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8f722ae570050e546ba7567b7fac11bb, type: 3}
+    m_Font: {fileID: 12800000, guid: 237764446034e2842984cc823971629a, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
@@ -2461,11 +2461,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1488851938745341748, guid: 048458a0d254ae648b3a277c45ef310f,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1488851938744810542, guid: 048458a0d254ae648b3a277c45ef310f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2520,6 +2515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488851938745341748, guid: 048458a0d254ae648b3a277c45ef310f,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1530226184285701124, guid: 048458a0d254ae648b3a277c45ef310f,
         type: 3}
