@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Elon'sScene.unity
     guid: 1e6cafd54c065db4e931eaac0597a706
+  - enabled: 1
+    path: Assets/Scenes/ArchMode/ArchScene.unity
+    guid: 47c3ed2892314ad49bf9d73a012e5b91
   m_configObjects: {}
